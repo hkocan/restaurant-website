@@ -1,0 +1,505 @@
+:root {
+  --primary: #8b1e1e;
+  --primary-dark: #641414;
+  --secondary: #2f6f73;
+  --accent: #e9b44c;
+  --background: #faf6ef;
+  --surface: #ffffff;
+  --text: #2b211b;
+  --text-soft: #6f6258;
+  --white: #ffffff;
+  --border: #eadfd2;
+  --content-width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: "Noto Sans", system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+}
+
+.skip-link {
+  background-color: var(--accent);
+  color: var(--text);
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: -4rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+header {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.brand {
+  color: var(--white);
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.site-navigation {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+  padding: 0.5rem;
+}
+
+.site-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+}
+
+.site-navigation a {
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site-navigation a:hover,
+.site-navigation a:focus-visible {
+  color: var(--accent);
+}
+
+.button,
+.button-call {
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.button-primary,
+.button-call {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.button-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.button-call {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.button:hover,
+.button-call:hover,
+.button:focus-visible,
+.button-call:focus-visible {
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+.hero {
+  align-items: center;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../img/hero-restaurant.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+  display: flex;
+  min-height: 35rem;
+  padding: 3rem 1.5rem;
+}
+
+.hero-image {
+  display: block;
+  margin: 0 auto 1.5rem;
+  max-width: 100%;
+}
+
+.hero-content {
+  margin: 0 auto;
+  max-width: 42rem;
+  text-align: center;
+}
+
+.hero-content h1,
+.hero-content p {
+  color: var(--white);
+}
+
+.hero-content > p:not(.section-label) {
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.section-label {
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.hero-content .section-label {
+  color: var(--accent);
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.featured {
+  background-color: var(--background);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.featured-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 2rem auto 0;
+  max-width: var(--content-width);
+}
+
+.dish-card,
+.menu-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(43, 33, 27, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dish-card-content,
+.menu-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.dish-card img,
+.menu-card img {
+  display: block;
+  height: 14rem;
+  margin-bottom: 0.75rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.dish-card p,
+.menu-card p {
+  color: var(--text-soft);
+  overflow-wrap: break-word;
+}
+
+.menu-card .price {
+  color: var(--primary);
+  font-weight: bold;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.dish-card-link {
+  color: var(--primary);
+  display: inline-block;
+  font-weight: bold;
+  margin-top: auto;
+  padding-top: 1rem;
+  text-decoration: none;
+}
+
+.dish-card-link:hover,
+.dish-card-link:focus-visible {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+.menu-card:target {
+  outline: 2px solid var(--accent);
+}
+
+.menu-section,
+.about-section,
+.location-section,
+.contact-section {
+  margin: 0 auto;
+  max-width: var(--content-width);
+  padding: 3rem 1.5rem;
+}
+
+.menu-category {
+  margin-top: 2rem;
+}
+
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.menu-grid .menu-card {
+  flex: 0 1 calc((100% - 3rem) / 3);
+}
+
+.turk-kahvesi-img {
+  object-fit: cover;
+  object-position: 90% center;
+}
+
+.about-section {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.about-content {
+  grid-column: 2;
+}
+
+.about-image {
+  border-radius: 5px;
+  display: block;
+  grid-column: 1;
+  height: 24rem;
+  min-width: 0;
+  object-fit: cover;
+  width: 100%;
+}
+
+.restaurant-features {
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+address {
+  display: grid;
+  font-style: normal;
+  gap: 0.4rem;
+  justify-items: start;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.contact-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 1.5rem;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-card:hover,
+.contact-card:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 4px 10px rgba(43, 33, 27, 0.12);
+  transform: translateY(-2px);
+}
+
+.contact-card-label {
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-card strong {
+  overflow-wrap: anywhere;
+}
+
+.contact-card > span:last-child {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.opening-hours {
+  margin-top: 2rem;
+}
+
+.opening-hours-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  max-width: 25rem;
+}
+
+.opening-hours-list > div {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.opening-hours-list dt,
+.opening-hours-list dd {
+  margin: 0;
+}
+
+.opening-hours-list dd {
+  white-space: nowrap;
+}
+
+.location-section .button {
+  margin-top: 1.5rem;
+}
+
+.map {
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  height: 20rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.site-footer {
+  background-color: var(--text);
+  color: var(--white);
+  display: grid;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+.site-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.site-footer a {
+  color: var(--accent);
+}
+
+@media (max-width: 1000px) {
+  .menu-grid .menu-card {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-call {
+    margin-top: 1rem;
+    position: static;
+  }
+
+  .site-navigation {
+    width: 100%;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid .menu-card {
+    flex-basis: 100%;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    text-align: center;
+  }
+
+  .about-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
